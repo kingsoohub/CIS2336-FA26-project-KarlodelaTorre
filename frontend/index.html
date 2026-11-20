@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the University of Houston Student Center. Find office directory information and maps.">
+  <title>University of Houston Student Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell" id="home">
+    <header class="university-header">
+      <a class="brand" href="index.html" aria-label="University of Houston home">
+        <img src="logo.png" alt="University of Houston logo">
+        <span>University of Houston</span>
+      </a>
+    </header>
+    <div class="student-center-title"><h1>UH Sugar Land Student Center</h1></div>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"><span class="menu-icon" aria-hidden="true">☰</span> Menu</button>
+      <ul class="nav-list" id="primary-menu"></ul>
+    </nav>
+    <main>
+      <div class="hero-placeholder" role="img" aria-label="Student Center feature image placeholder"><span>Student Center Image Placeholder</span></div>
+      <section class="content-section directory-section" aria-labelledby="directory-title">
+        <h2 id="directory-title">OFFICE DIRECTORY</h2>
+        <div class="table-scroll">
+          <table class="office-table">
+            <thead><tr><th scope="col">Office Name</th><th scope="col">Room Number</th><th scope="col">Telephone Number</th></tr></thead>
+            <tbody>
+              <tr><td>Student Center Administration</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Campus Recreation</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Center for Student Involvement</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Conference and Event Services</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Dean of Students Office</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Student Activities</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Student Organizations</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Student Government Association</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Center for Fraternity and Sorority Life</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Veteran Services</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Commuter Student Services</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>International Student Services</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>Student Media</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>UH Dining Services</td><td>TBD</td><td>TBD</td></tr>
+              <tr><td>UH Bookstore</td><td>TBD</td><td>TBD</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="content-section maps-section" aria-labelledby="maps-title">
+        <h2 id="maps-title">MAPS</h2>
+        <div class="map-placeholder" role="img" aria-label="Student Center Map Placeholder"><span>Student Center Map Placeholder</span></div>
+      </section>
+    </main>
+    <footer class="developer-footer" id="contact">
+      <h2>Developer Contact</h2>
+      <ul><li>Karlo de la Torre</li><li>krdelato@CougarNet.UH.EDU</li></ul>
+    </footer>
+  </div>
+  <script>
+    const navigationPages = [
+      { label: "Home", href: "index.html", current: true },
+      { label: "FAQ", href: "FAQ.html" },
+      { label: "Conference & Reservations", href: "roombooking.html" },
+      { label: "Dine & Shop", href: "dine-shop.html" },
+      { label: "Reference", href: "reference.html" }
+    ];
+    const menu = document.querySelector("#primary-menu");
+    const menuToggle = document.querySelector(".menu-toggle");
+    navigationPages.forEach((page) => {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = page.href;
+      link.textContent = page.label;
+      if (page.current) link.setAttribute("aria-current", "page");
+      item.appendChild(link);
+      menu.appendChild(item);
+    });
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      menu.classList.toggle("is-open", !isExpanded);
+    });
+  </script>
+</body>
+</html>
